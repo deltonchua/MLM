@@ -1,0 +1,105 @@
+@use './color';
+@use './breakpoint';
+
+@function transition($property, $delay: 0.3s) {
+  @return $property $delay ease-in-out;
+}
+
+%hover-gray {
+  transition: transition(background-color);
+
+  &:hover {
+    background-color: color.$bg-gray-hover;
+  }
+}
+
+$width-sm: min(90%, 28rem);
+
+%flex-center {
+  display: flex;
+  align-items: center;
+}
+
+%flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+%flex-column-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+%inline-flex-center {
+  display: inline-flex;
+  place-items: center;
+}
+
+%grid-center {
+  display: grid;
+  place-items: center;
+  align-content: center;
+}
+
+%wide {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+%fixed-wide {
+  @extend %wide;
+  position: fixed;
+}
+
+%sticky-wide {
+  @extend %wide;
+  position: sticky;
+}
+
+%elevate {
+  transition: transition(box-shadow);
+
+  &:hover {
+    box-shadow: color.$elevation;
+  }
+}
+
+%box-rounded {
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background-color: color.$bg;
+}
+
+%box-rounded-gray {
+  @extend %box-rounded;
+  background-color: color.$bg-gray;
+}
+
+%hide-scrollbar {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+%hide-scrollbar-mobile {
+  @include breakpoint.bp2 {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}

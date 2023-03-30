@@ -1,0 +1,88 @@
+@use './breakpoint';
+@use './color';
+
+%container {
+  padding: 0 1.5rem;
+  margin: 0 auto;
+
+  @include breakpoint.bp2 {
+    padding: 0 1rem;
+  }
+}
+
+.bg-gray {
+  background-color: color.$bg-gray;
+}
+
+.container-lg {
+  @extend %container;
+  max-width: 1600px;
+}
+
+.container-l {
+  @extend %container;
+  max-width: 1200px;
+}
+
+.container-md {
+  @extend %container;
+  max-width: 1000px;
+}
+
+.container-sm {
+  @extend %container;
+  max-width: 500px;
+}
+
+.page-title {
+  font-size: 2rem;
+  padding-top: 2rem;
+}
+
+.page-subtitle {
+  color: color.$text-2;
+  font-size: 1.2rem;
+}
+
+.section {
+  padding: 1.25rem 0 2rem;
+}
+
+.section-bordered {
+  @extend .section;
+  border-top: color.border();
+}
+
+.section-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.section-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+
+  a,
+  button {
+    font-size: 0.9rem;
+    color: color.$blue;
+
+    // @include breakpoint.bp3 {
+    //   font-size: 0.8rem;
+    // }
+  }
+}
+
+.enter {
+  animation: enter 0.5s ease-in-out;
+}
+
+@keyframes enter {
+  from {
+    transform: translateX(-5vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

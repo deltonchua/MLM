@@ -1,0 +1,68 @@
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+@function shadow($color: $gray) {
+  @return 0 0 0 1px $color;
+}
+
+@function border($color: $gray) {
+  @return 1px solid $color;
+}
+
+$bg: #fff;
+$text: #000;
+$text-2: #666;
+$text-3: #aaa;
+// $primary: #3fb;
+$bg-gray: #f7f7f7;
+$bg-gray-hover: rgba(
+  $color: $text,
+  $alpha: 0.07,
+);
+$gray: #d9d9d9;
+$elevation: 0 1px 3px
+    rgba(
+      $color: black,
+      $alpha: 0.12,
+    ),
+  0 1px 2px
+    rgba(
+      $color: black,
+      $alpha: 0.24,
+    );
+$elevation-2: 0 14px 28px
+    rgba(
+      $color: black,
+      $alpha: 0.25,
+    ),
+  0 10px 10px
+    rgba(
+      $color: black,
+      $alpha: 0.22,
+    );
+
+$green: #00c853;
+$red: #ff3b30;
+$blue: #007aff;
+$blue-hover: rgba(
+  $color: $blue,
+  $alpha: 0.05,
+);
+$primary: $blue;
+
+// Darkmode
+$darkmode-bg: #181a1b;
+$darkmode-text: #fff;
+
+.link {
+  color: $blue;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

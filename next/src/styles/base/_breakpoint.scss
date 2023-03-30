@@ -1,0 +1,23 @@
+@mixin breakpoint($size) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin bp1 {
+  @include breakpoint(1000px) {
+    @content;
+  }
+}
+
+@mixin bp2 {
+  @include breakpoint(750px) {
+    @content;
+  }
+}
+
+@mixin bp3 {
+  @include breakpoint(500px) {
+    @content;
+  }
+}

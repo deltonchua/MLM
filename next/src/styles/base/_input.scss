@@ -1,0 +1,39 @@
+@use './box';
+@use './color';
+
+.input {
+  @extend %box-rounded;
+  @extend %flex-center;
+  padding: 0.75rem 1rem;
+
+  label {
+    padding-right: 1rem;
+    width: 40%;
+  }
+
+  input {
+    flex: 1;
+  }
+}
+
+.input-message {
+  display: block;
+  margin: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.input-message-success {
+  @extend .input-message;
+  color: color.$green;
+}
+
+.input-message-error {
+  @extend .input-message;
+  color: color.$red;
+}
+
+.input-message-gray {
+  @extend .input-message;
+  color: color.$text-2;
+}

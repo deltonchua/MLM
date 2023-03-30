@@ -1,0 +1,136 @@
+@use './box';
+@use './breakpoint';
+@use './color';
+@use './text';
+
+%btn {
+  @extend %box-rounded;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  transition: box.transition(background-color);
+  // @include breakpoint.bp2 {
+  //   font-size: 0.9rem;
+  // }
+
+  &:disabled {
+    color: color.$text-2;
+    background-color: color.$bg-gray-hover;
+
+    &:hover {
+      color: color.$text-2;
+      background-color: color.$bg-gray-hover;
+    }
+  }
+}
+
+.btn-gray {
+  @extend %btn;
+  @extend %flex-center;
+  @extend %hover-gray;
+}
+
+.btn-content {
+  @extend .btn-gray;
+  padding: initial;
+  padding-left: 1rem;
+  text-align: left;
+
+  > img,
+  > svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.75rem;
+  }
+
+  > div {
+    @extend %flex-center;
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 0;
+
+    > *:not(:last-child) {
+      margin-right: 0.75rem;
+    }
+
+    > *:first-child {
+      flex: 1;
+    }
+
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      fill: color.$text-2;
+
+      // @include breakpoint.bp2 {
+      //   width: 0.9rem;
+      //   height: 0.9rem;
+      // }
+    }
+
+    span {
+      @extend %ellipsis;
+    }
+
+    .status {
+      max-width: 40%;
+      color: color.$text-2;
+    }
+  }
+}
+
+.btn-blue {
+  @extend .btn-gray;
+  color: color.$blue;
+}
+
+.btn-red {
+  @extend .btn-blue;
+  color: color.$red;
+}
+
+.btn-blue-centered {
+  @extend .btn-blue;
+  @extend %grid-center;
+}
+
+.btn-red-centered {
+  @extend .btn-red;
+  @extend %grid-center;
+}
+
+.btn-filled {
+  @extend %btn;
+  @extend %grid-center;
+  background-color: color.$primary;
+  color: color.$bg;
+
+  &:hover {
+    background-color: color.shade(color.$primary, 10);
+  }
+}
+
+.btn-icon {
+  @extend %grid-center;
+  @extend %hover-gray;
+  padding: 0.25rem;
+  border-radius: 50%;
+}
+
+.btn-sm {
+  @extend %grid-center;
+  @extend %hover-gray;
+  color: color.$blue;
+  font-size: 0.9rem;
+  font-weight: bold;
+  background-color: color.$bg-gray;
+  padding: 0.3rem 0.6rem;
+  border-radius: 100rem;
+
+  @include breakpoint.bp3 {
+    font-size: 0.8rem;
+  }
+}
+
+.action {
+  color: color.$blue;
+  fill: color.$blue;
+}

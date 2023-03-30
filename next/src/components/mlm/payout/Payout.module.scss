@@ -1,0 +1,6 @@
+@use '../commission/Commission.module.scss';
+
+.link {
+  @extend %ellipsis;
+  margin-left: 3rem;
+}

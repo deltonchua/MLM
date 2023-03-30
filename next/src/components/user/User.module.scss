@@ -1,0 +1,65 @@
+@use '../../styles/base';
+
+.section {
+  > * {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.profile {
+  @extend %flex-center;
+  @extend %flex-column;
+
+  .photo {
+    @extend %grid-center;
+    border-radius: 100%;
+    transition: base.transition(box-shadow);
+
+    &:hover {
+      box-shadow: 0 0 0 4px base.$bg;
+    }
+  }
+
+  > p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  > span {
+    color: base.$text-2;
+    text-align: center;
+  }
+}
+
+.email {
+  span {
+    font-size: 0.8rem;
+    color: base.$text-2;
+  }
+}
+
+.form {
+  > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.form-column {
+  @extend %flex-column-between;
+  @extend .form;
+}
+
+.photo-preview {
+  @extend %grid-center;
+
+  input[type='file'] {
+    display: none;
+  }
+
+  .img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 2rem;
+  }
+}

@@ -1,0 +1,43 @@
+@use '../../styles/base';
+
+.container {
+  width: 100%;
+
+  .description {
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: base.$text-2;
+    margin: 0.5rem 1rem;
+
+    // @include base.bp3 {
+    //   font-size: 0.8rem;
+    // }
+  }
+
+  .title {
+    @extend .description;
+    text-transform: uppercase;
+  }
+
+  .body {
+    > * {
+      border-radius: initial;
+
+      &:first-child {
+        border-top-left-radius: 0.75rem;
+        border-top-right-radius: 0.75rem;
+      }
+
+      &:last-child {
+        border-bottom-left-radius: 0.75rem;
+        border-bottom-right-radius: 0.75rem;
+      }
+
+      &:not(:first-child) {
+        > div {
+          border-top: base.border();
+        }
+      }
+    }
+  }
+}

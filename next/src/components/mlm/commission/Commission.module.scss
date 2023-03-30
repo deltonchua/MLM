@@ -1,0 +1,33 @@
+@use '../../../styles/base';
+
+.history {
+  @extend %box-rounded;
+  margin-bottom: 1.5rem;
+
+  > * {
+    @extend %flex-between;
+  }
+
+  header {
+    font-size: 0.9rem;
+    color: base.$text-2;
+    margin-bottom: 0.75rem;
+  }
+
+  > div {
+    padding: 0.5rem 0;
+
+    @include base.bp2 {
+      padding: 0.25rem 0;
+    }
+
+    &:not(:first-of-type) {
+      border-top: base.border();
+    }
+
+    span {
+      @extend %ellipsis;
+      margin-left: 3rem;
+    }
+  }
+}

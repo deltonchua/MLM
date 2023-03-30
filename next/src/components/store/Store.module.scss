@@ -1,0 +1,56 @@
+@use '../../styles/base';
+
+.products {
+  @extend .section;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: flex-start;
+
+  @include base.bp1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include base.bp3 {
+    grid-template-columns: 1fr;
+  }
+
+  > a {
+    @extend %flex-column;
+    overflow: hidden;
+    border-radius: 1rem;
+    background-color: base.$bg;
+    transition: base.transition(background-color);
+
+    &:hover {
+      background-color: base.$bg-gray-hover;
+    }
+
+    .img {
+      width: 100%;
+      height: 16rem;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+    }
+
+    .product-info {
+      @extend %flex-column-between;
+      min-height: initial;
+      flex: 1;
+      padding: 1rem;
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+
+      span {
+        color: base.$text-2;
+        font-size: 0.9rem;
+      }
+
+      .btm {
+        @extend %flex-between;
+        @extend %flex-center;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}

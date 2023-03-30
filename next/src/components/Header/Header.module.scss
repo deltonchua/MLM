@@ -1,0 +1,297 @@
+@use '../../styles/base';
+
+.header {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: base.$bg;
+  height: 4rem;
+  // box-shadow: base.shadow();
+
+  .container-md {
+    @extend %flex-center;
+    @extend %flex-between;
+
+    @include base.bp2 {
+      padding: 0 0 0.5rem 0;
+    }
+  }
+
+  @include base.bp2 {
+    top: initial;
+    bottom: 0;
+    height: 4.5rem;
+    box-shadow: 0 -1px base.$gray;
+  }
+
+  .logo {
+    @extend %flex-center;
+
+    @include base.bp2 {
+      display: none;
+    }
+
+    img {
+      @extend %rotation;
+      width: 2rem;
+      height: 2rem;
+      margin-right: 0.3rem;
+    }
+
+    h1 {
+      font-family: base.$font-display;
+      font-size: 1.25rem;
+    }
+  }
+
+  nav {
+    @extend %flex-center;
+
+    @include base.bp2 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      width: 100%;
+    }
+
+    > a,
+    > button {
+      @extend %flex-center;
+      line-height: 1;
+      height: 4rem;
+      padding: 0 1rem;
+      transition: base.transition(background-color);
+
+      &:hover {
+        background-color: base.$bg-gray;
+
+        @include base.bp2 {
+          background-color: initial;
+        }
+      }
+
+      &.active {
+        color: base.$blue;
+        border-bottom: 3px solid base.$blue;
+
+        @include base.bp2 {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background-color: base.$blue-hover;
+
+          @include base.bp2 {
+            background-color: initial;
+          }
+        }
+
+        svg {
+          fill: base.$blue;
+        }
+      }
+
+      @include base.bp2 {
+        flex-direction: column;
+        justify-content: center;
+        padding: initial;
+      }
+
+      svg {
+        width: 1.25rem;
+        height: 1.25rem;
+
+        @include base.bp2 {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+
+      span {
+        margin-left: 0.25rem;
+
+        @include base.bp2 {
+          margin-left: 0;
+          font-size: 0.9rem;
+        }
+
+        @include base.bp3 {
+          font-size: 0.75rem;
+        }
+
+        &.hide {
+          display: none;
+
+          @include base.bp2 {
+            display: initial;
+          }
+        }
+      }
+    }
+  }
+}
+
+%cart-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cart {
+  @extend %flex-column-between;
+
+  > div > *:not(:only-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  .item {
+    @extend .btn-gray;
+    @extend %cart-grid;
+    border-radius: initial;
+    background-color: base.$bg;
+    padding: 0.75rem;
+
+    &:not(:first-child) {
+      border-top: base.border();
+
+      > div {
+        border-top: none;
+      }
+    }
+
+    a {
+      @extend %cart-grid;
+      grid-template-columns: auto minmax(0, 1fr);
+
+      .img {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 100%;
+      }
+    }
+
+    p {
+      @extend %ellipsis;
+    }
+
+    span {
+      @extend %ellipsis;
+      font-size: 0.9rem;
+      color: base.$text-2;
+    }
+
+    .amount {
+      @extend %flex-column;
+
+      button {
+        @extend %grid-center;
+
+        svg {
+          fill: base.$text-2;
+        }
+      }
+
+      p {
+        margin: 0.25rem;
+      }
+    }
+  }
+
+  .order {
+    @extend .item;
+    padding: 0.75rem 1rem;
+  }
+}
+
+.connect-wallet {
+  .info {
+    @extend %box-rounded;
+    font-size: 0.9rem;
+  }
+
+  .btn-content {
+    margin-top: 1rem;
+  }
+}
+
+.my-wallet {
+  @extend %flex-column-between;
+
+  > div > * {
+    margin-bottom: 1rem;
+  }
+
+  .profile-container {
+    @extend %box-rounded;
+    padding: 0.75rem 1rem;
+  }
+
+  .profile {
+    @extend %flex-center;
+
+    div {
+      margin-left: 1rem;
+
+      p {
+        font-weight: bold;
+      }
+
+      span {
+        color: base.$text-2;
+      }
+    }
+  }
+}
+
+.more {
+  > div {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.page-header {
+  background-color: base.$bg;
+
+  .container-md {
+    display: grid;
+    align-items: center;
+    grid-template-columns: minmax(0, 1.75fr) minmax(0, 6.5fr) minmax(0, 1.75fr);
+    gap: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-top: base.border();
+
+    @include base.bp2 {
+      border-top: initial;
+    }
+  }
+
+  @include base.bp2 {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  button {
+    @extend %flex-center;
+    color: base.$blue;
+    // font-size: 0.9rem;
+
+    svg {
+      // width: 0.9rem;
+      // height: 0.9rem;
+      width: 1rem;
+      height: 1rem;
+      fill: base.$blue;
+      margin-right: 0.25rem;
+    }
+  }
+
+  h3 {
+    font-size: 1rem;
+    text-align: center;
+  }
+}

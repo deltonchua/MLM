@@ -1,0 +1,17 @@
+@use '../styles/base';
+
+.container {
+  @extend %grid-center;
+  @extend %fixed-wide;
+  z-index: 10;
+  background-color: base.$bg;
+
+  img {
+    @extend %grid-center;
+    @extend %rotation;
+    width: 5rem;
+    height: 5rem;
+    max-width: 30vw;
+    max-height: 30vw;
+  }
+}

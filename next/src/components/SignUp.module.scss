@@ -1,0 +1,7 @@
+@use '../styles/base';
+
+.form {
+  > * {
+    margin-bottom: 1rem;
+  }
+}

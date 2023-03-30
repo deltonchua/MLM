@@ -1,0 +1,82 @@
+@use '../styles/base';
+
+.overlay {
+  @extend %grid-center;
+  @extend %fixed-wide;
+  z-index: 10;
+  background-color: rgba($color: #000, $alpha: 0.4);
+  backdrop-filter: blur(3px);
+}
+
+.modal {
+  width: base.$width-sm;
+  box-shadow: base.$elevation-2;
+  background-color: base.$bg-gray;
+  border-radius: 1.5rem;
+
+  @include base.bp3 {
+    width: 100%;
+    height: calc(100vh - 1rem);
+    height: calc(var(--vh, 1vh) * 100 - 1rem);
+    margin-top: 1rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    animation: toast 0.5s ease-in-out;
+  }
+
+  header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1.5fr 8.5fr 1.5fr;
+    gap: 1rem;
+    padding: 1rem;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+    box-shadow: 0 1px base.$gray;
+
+    button {
+      @extend .action;
+      font-size: 0.9rem;
+
+      &:disabled {
+        color: base.$text-3;
+      }
+
+      &:last-child {
+        font-weight: bold;
+      }
+    }
+
+    h3 {
+      font-size: 1rem;
+      text-align: center;
+    }
+  }
+
+  .body {
+    padding: 1rem;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    max-height: calc(90vh - 3.25rem);
+    max-height: calc(var(--vh, 1vh) * 90 - 3.25rem);
+    overflow-y: auto;
+
+    @include base.bp3 {
+      height: 100%;
+      max-height: calc(100vh - 1rem - 3.25rem);
+      max-height: calc(var(--vh, 1vh) * 100 - 1rem - 3.25rem);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      padding-bottom: 2rem;
+    }
+  }
+}
+
+@keyframes toast {
+  from {
+    transform: translateY(1rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

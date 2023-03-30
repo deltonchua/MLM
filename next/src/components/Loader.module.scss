@@ -1,0 +1,17 @@
+@use '../styles/base';
+
+.container {
+  @extend %grid-center;
+  @extend %fixed-wide;
+  z-index: 15;
+  background-color: rgba($color: #000, $alpha: 0.4);
+  backdrop-filter: blur(3px);
+
+  img {
+    @extend %grid-center;
+    width: 5rem;
+    height: 5rem;
+    max-width: 30vw;
+    max-height: 30vw;
+  }
+}

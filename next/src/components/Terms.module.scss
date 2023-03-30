@@ -1,0 +1,11 @@
+@use '../styles/base';
+
+.section {
+  p:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    @extend .link;
+  }
+}

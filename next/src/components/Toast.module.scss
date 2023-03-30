@@ -1,0 +1,38 @@
+@use '../styles/base';
+
+.message {
+  @extend %box-rounded;
+  display: flex;
+  align-items: flex-start;
+  position: fixed;
+  top: 5rem;
+  right: 1rem;
+  z-index: 20;
+  max-width: min(80%, 25rem);
+  box-shadow: base.$elevation;
+  animation: toast 0.5s ease-in-out;
+  font-size: 0.9rem;
+  background-color: base.$bg;
+
+  @include base.bp2 {
+    top: 1.5rem;
+  }
+
+  span {
+    margin-right: 1rem;
+  }
+
+  button {
+    @extend .action;
+    font-weight: bold;
+  }
+}
+
+@keyframes toast {
+  from {
+    transform: translateY(0.5rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

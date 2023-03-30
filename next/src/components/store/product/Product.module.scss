@@ -1,0 +1,118 @@
+@use '../../../styles/base';
+
+%text-large {
+  font-size: 1.5rem;
+
+  @include base.bp2 {
+    font-size: 1.2rem;
+  }
+
+  // @include base.bp3 {
+  //   font-size: 1rem;
+  // }
+}
+
+.profile {
+  @extend .section;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+
+  @include base.bp2 {
+    gap: 1rem;
+  }
+
+  .img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 2.5rem;
+    box-shadow: base.shadow();
+
+    @include base.bp3 {
+      width: 8rem;
+      height: 8rem;
+      border-radius: 2rem;
+    }
+  }
+
+  .right {
+    @extend %flex-column-between;
+    padding: 0.25rem 0;
+    overflow: hidden;
+
+    h1 {
+      @extend %text-large;
+    }
+
+    span {
+      color: base.$text-2;
+    }
+
+    .btm {
+      @extend %flex-center;
+      @extend %flex-between;
+      margin-top: 0.5rem;
+    }
+
+    .price {
+      @extend %text-large;
+    }
+  }
+}
+
+.photos {
+  @extend .section-bordered;
+
+  > div {
+    overflow-x: auto;
+
+    @extend %hide-scrollbar-mobile;
+
+    .gallery {
+      @extend %flex-center;
+      width: fit-content;
+
+      .img {
+        width: 15rem;
+        height: 15rem;
+        border-radius: 1rem;
+        box-shadow: base.shadow();
+
+        &:not(:last-of-type) {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.description {
+  @extend .section-bordered;
+
+  p {
+    color: base.$text-2;
+  }
+}
+
+.product-info {
+  @extend .section-bordered;
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+
+    @include base.bp2 {
+      grid-template-columns: 1fr;
+    }
+
+    p {
+      color: base.$text-2;
+      text-transform: capitalize;
+    }
+
+    span {
+      text-transform: capitalize;
+    }
+  }
+}

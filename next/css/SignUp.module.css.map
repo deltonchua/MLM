@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,IAAI,CAAJ,gBAAI;AAEJ,AACE,KADG,GACD,CAAC,CAAC;EACF,aAAa,EAAE,IAAI;CACpB",
+    "sources": [
+        "../src/components/SignUp.module.scss"
+    ],
+    "names": [],
+    "file": "SignUp.module.css"
+}

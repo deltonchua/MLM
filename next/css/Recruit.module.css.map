@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,IAAI,CAAJ,sBAAI;AAEJ,AACE,SADO,CACP,QAAQ,CAAC;EACP,UAAU,EAAE,IAAI;CACjB",
+    "sources": [
+        "../src/components/mlm/recruits/Recruit.module.scss"
+    ],
+    "names": [],
+    "file": "Recruit.module.css"
+}
